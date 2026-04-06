@@ -1,0 +1,20 @@
+.slot {
+  height: 180px;
+  border: 1.5px dashed #d0d0d0;
+  border-radius: 10px;
+  background: #f4f4f2;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 8px;
+  color: #777777;
+  padding: 16px;
+}
+
+.slot small {
+  color: #9a9a9a;
+}
+
+.tall {
+  height: 320px;
+}

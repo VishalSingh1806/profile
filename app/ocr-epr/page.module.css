@@ -1,0 +1,227 @@
+.heroSection,
+.rolesSection,
+.extractSection,
+.stepsSection,
+.notesSection,
+.helpSection {
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+}
+
+.heroSection {
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid var(--color-border);
+  display: grid;
+  gap: 48px;
+}
+
+.heroText,
+.sectionHead {
+  display: grid;
+  gap: 16px;
+}
+
+.eyebrow,
+.sectionEyebrow,
+.subtext,
+.accessNote {
+  margin: 0;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.title span {
+  color: var(--color-primary);
+}
+
+.primaryButton {
+  min-height: 44px;
+  width: fit-content;
+  padding: 13px 26px;
+  border-radius: var(--radius-btn);
+  background: var(--color-primary);
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.accessNote {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.browserFrame {
+  width: min(100%, 420px);
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.browserTop {
+  height: 40px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--color-border);
+  background: #f4f4f2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.red { background: #ff6b6b; }
+.yellow { background: #ffd93d; }
+.green { background: #6bcb77; }
+
+.browserBody {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.uploadArea {
+  min-height: 138px;
+  border: 1.5px dashed #d0d0d0;
+  border-radius: 10px;
+  background: #f8faf8;
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.uploadIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.uploadLabel {
+  font-size: 13px;
+  color: #777777;
+}
+
+.greenRows {
+  display: grid;
+  gap: 10px;
+}
+
+.greenRow {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8fbf9;
+  border: 1px solid #e3eee8;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.rowLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.rowValue {
+  display: grid;
+  gap: 6px;
+}
+
+.lineLong,
+.lineShort {
+  display: block;
+  background: #b7dcca;
+  border-radius: 999px;
+}
+
+.lineLong { height: 10px; }
+.lineShort { width: 62%; height: 8px; }
+
+.rolesSection,
+.notesSection {
+  padding: 72px 48px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-warm);
+}
+
+.extractSection,
+.stepsSection,
+.helpSection {
+  padding: 72px 48px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.grid3,
+.notesGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.extractTile,
+.noteTile {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.extractTile h3,
+.extractTile p,
+.noteTile h3,
+.noteTile p {
+  margin: 0;
+}
+
+.fieldList {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--color-text-body);
+  line-height: 1.8;
+}
+
+.subtext {
+  font-size: 16px;
+  color: var(--color-text-body);
+  max-width: 820px;
+}
+
+.stepsList {
+  margin-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 900px) {
+  .heroSection {
+    grid-template-columns: 1fr 420px;
+  }
+
+  .grid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .notesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,41 @@
+.wrapper {
+  display: grid;
+  gap: 12px;
+}
+
+.item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.trigger {
+  width: 100%;
+  min-height: 56px;
+  padding: 18px 20px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  color: var(--color-text-heading);
+  font: 500 1rem/1.4 var(--font-heading);
+  cursor: pointer;
+}
+
+.panel {
+  margin: 0;
+  padding: 0 20px 20px;
+}
+
+.chevron {
+  flex: 0 0 auto;
+  transition: transform 0.15s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}

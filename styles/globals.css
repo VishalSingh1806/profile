@@ -1,0 +1,93 @@
+:root {
+  --color-primary: #1d9e75;
+  --color-primary-dark: #0f6e56;
+  --color-primary-light: #e1f5ee;
+  --color-primary-deep: #085041;
+  --color-amber: #ba7517;
+  --color-amber-light: #faeeda;
+  --color-amber-dark: #854f0b;
+  --color-text-heading: #1a1a1a;
+  --color-text-body: #666666;
+  --color-text-muted: #aaaaaa;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f9f9f7;
+  --color-surface-warm: #fafaf8;
+  --color-surface-green: #e1f5ee;
+  --color-border: #efefef;
+  --color-border-green: #c8eadc;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-role: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-text-body);
+  font: 400 16px/1.7 var(--font-body);
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 64px);
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+p {
+  margin: 0;
+}
+
+.page-shell {
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .page-shell {
+    width: min(100%, calc(100% - 32px));
+  }
+}
