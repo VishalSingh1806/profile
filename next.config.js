@@ -2,13 +2,16 @@
 const isGithubPages = process.env.GITHUB_ACTIONS === "true";
 
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
-  basePath: isGithubPages ? "/me" : "",
-  assetPrefix: isGithubPages ? "/me/" : undefined,
+  // Static export only for GitHub Pages; Cloudflare Workers uses standalone via OpenNext
+  ...(isGithubPages && {
+    output: "export",
+    trailingSlash: true,
+    basePath: "/me",
+    assetPrefix: "/me/",
+  }),
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
