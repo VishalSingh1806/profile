@@ -20,16 +20,21 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 export const navLinks = [
-  { href: "/", label: "Overview" },
-  { href: "/climaone-v1/", label: "ClimaOne V1" },
-  { href: "/climaone-v2/", label: "ClimaOne V2" },
-  { href: "/ocr-epr/", label: "OCR EPR" },
-  { href: "/ocr-bizcard/", label: "OCR Biz Card" },
-  { href: "/route-optimizer/", label: "Route Optimizer" },
-  { href: "/chatbot/", label: "Chatbot" },
-  { href: "/drive-automation/", label: "Drive Automation" },
-  { href: "/contact/", label: "Help" }
+  { href: "/#about", label: "About" },
+  { href: "/#projects", label: "Projects" }
 ] as const;
+
+export const aboutContent = {
+  bio: [
+    "I'm an AI Solution Architect who independently owns products end to end — from early problem discovery, client conversations, and stakeholder alignment to architecture, development, deployment, and iteration after launch.",
+    "I design and build the intelligent systems the team runs on: document OCR pipelines, RAG chatbots, route optimization engines, compliance platforms, and internal tools. My work spans EPR compliance, logistics, document intelligence, education management, philanthropy, and consumer apps."
+  ],
+  techStack: [
+    "Python", "FastAPI", "Next.js", "TypeScript",
+    "Google Gemini", "RAG", "Docker", "MongoDB",
+    "Redis", "Socket.IO", "PostgreSQL", ".NET"
+  ]
+};
 
 export type RoleItem = {
   icon: LucideIcon;
@@ -98,79 +103,122 @@ export const overviewTools = [
     number: "01",
     name: "ClimaOne V1",
     tagline:
-      "Managing EPR compliance shouldn't mean juggling spreadsheets. ClimaOne puts everything in one place.",
+      "End-to-end EPR compliance platform I designed and built to manage the full lifecycle — from purchase order creation to certificate issuance — across every partner, facility, and vehicle in the network.",
     status: "Live",
     statusTone: "live" as const,
-    href: "/climaone-v1/",
-    ctaLabel: "Open tool",
+    href: "https://admin.climaone.in/login/index.html",
+    ctaLabel: "View project",
     mockup: "v1" as const
   },
   {
     number: "02",
     name: "ClimaOne V2",
     tagline:
-      "Full material traceability built for BIS regulations - from collection all the way to compliance report.",
-    status: "Coming Soon",
-    statusTone: "comingSoon" as const,
-    href: "mailto:[INSERT EMAIL]",
-    ctaLabel: "Notify me when live",
-    mockup: "v2" as const,
-    mailto: true
+      "Material traceability platform I owned from workflow design to implementation for BIS-aligned operations. Every gram tracked across 7 physical touchpoints with full chain-of-custody evidence.",
+    status: "In Progress",
+    statusTone: "inDev" as const,
+    href: "https://v2.climaone.in/login",
+    ctaLabel: "View project",
+    mockup: "v2" as const
   },
   {
     number: "03",
     name: "OCR for EPR",
     tagline:
-      "Stop entering compliance document data by hand. Upload any form and the data comes out structured, instantly.",
+      "Document intelligence workflow I designed and built for EPR teams: upload compliance documents and get structured data instantly through an async pipeline powered by Redis, Socket.IO, and Gemini Vision.",
     status: "Live",
     statusTone: "live" as const,
-    href: "/ocr-epr/",
-    ctaLabel: "Open tool",
+    href: "https://github.com/VishalSingh1806/OCR",
+    ctaLabel: "View project",
     mockup: "ocrEpr" as const
   },
   {
     number: "04",
     name: "OCR for Business Cards",
     tagline:
-      "Never manually type a contact again. Photograph any business card and save the details in seconds.",
+      "Business-card OCR system I built end to end for contact capture and outreach workflows. Batch-process up to 300 cards at once with Gemini extracting clean, export-ready contact data.",
     status: "Live",
     statusTone: "live" as const,
-    href: "/ocr-bizcard/",
-    ctaLabel: "Open tool",
+    href: "https://github.com/VishalSingh1806/Businesses-card-ocr",
+    ctaLabel: "View project",
     mockup: "ocrBiz" as const
   },
   {
     number: "05",
     name: "Route Optimizer",
     tagline:
-      "Plan smarter collection routes in seconds. Less time on the road, more pickups done every day.",
+      "Route planning tool I built for field operations after understanding team workflows and dispatch constraints. FastAPI backend with GCS integration for efficient area-based pickup planning.",
     status: "Live",
     statusTone: "live" as const,
-    href: "/route-optimizer/",
-    ctaLabel: "Open tool",
+    href: "https://github.com/VishalSingh1806/best-route",
+    ctaLabel: "View project",
     mockup: "route" as const
   },
   {
     number: "06",
     name: "EPR Chatbot",
     tagline:
-      "Get instant answers to any EPR compliance question. No waiting, no back-and-forth - just ask.",
+      "RAG chatbot I designed and shipped to turn complex EPR regulations and internal policies into instant, cited answers for customers and internal teams.",
     status: "Live",
     statusTone: "live" as const,
-    href: "/chatbot/",
-    ctaLabel: "Open tool",
+    href: "https://recircle.in/epr/",
+    ctaLabel: "View project",
     mockup: "chat" as const
   },
   {
     number: "07",
+    name: "Marathi Startup Chatbot",
+    tagline:
+      "Marathi-first RAG chatbot I built to deliver startup guidance, funding support, and business-development answers to Maharashtra's entrepreneurs in their own language.",
+    status: "Live",
+    statusTone: "live" as const,
+    href: "https://github.com/VishalSingh1806/Marathi-ChatBot",
+    ctaLabel: "View project",
+    mockup: "marathi" as const
+  },
+  {
+    number: "08",
     name: "Drive Automation",
     tagline:
-      "No more manual file transfers between team members. Built for HR - automated, reliable, instant.",
-    status: "Live - HR team",
+      "Internal automation tool I built to eliminate repetitive admin work by auditing and transferring Google Drive ownership in a single flow.",
+    status: "Live",
     statusTone: "live" as const,
-    href: "/drive-automation/",
-    ctaLabel: "Open tool",
+    href: "https://github.com/VishalSingh1806/backup-automation",
+    ctaLabel: "View project",
     mockup: "drive" as const
+  },
+  {
+    number: "09",
+    name: "FootLooseNoMore",
+    tagline:
+      "Consumer matchmaking PWA I designed and developed end to end with multi-step profile matching, OTP auth, real-time updates, and curated admin review flows.",
+    status: "In Development",
+    statusTone: "inDev" as const,
+    href: "https://footloosenomore.com/",
+    ctaLabel: "View project",
+    mockup: "fnm" as const
+  },
+  {
+    number: "10",
+    name: "REO 360",
+    tagline:
+      "Institution management platform I built for operational teams handling fee collection, payment validation, student records, and Excel-based bulk workflows.",
+    status: "Live",
+    statusTone: "live" as const,
+    href: "https://reo360.in/#/",
+    ctaLabel: "View project",
+    mockup: "reo" as const
+  },
+  {
+    number: "11",
+    name: "Accelerate Indian Philanthropy",
+    tagline:
+      "Public-facing nonprofit platform I designed and developed with a giving portal, member directory, careers section, and FAQ on Next.js with a headless Express API.",
+    status: "Live",
+    statusTone: "live" as const,
+    href: "https://www.indianphilanthropy.org/",
+    ctaLabel: "View project",
+    mockup: "aip" as const
   }
 ];
 
@@ -214,7 +262,7 @@ const placeholderSteps: JourneyItem[] = [
 
 export const contactDetails = {
   name: "[INSERT NAME]",
-  role: "[INSERT ROLE] | ReCircle Tech",
+  role: "[INSERT ROLE]",
   email: "[INSERT EMAIL]",
   phone: "[INSERT PHONE]"
 };
@@ -242,12 +290,12 @@ export const climaOneV1Page: BaseToolPage & {
     "ClimaOne V1 manages the full plastic recovery lifecycle - from purchase order creation to certificate issuance - across every partner, facility, and vehicle in your network.",
   primaryAction: {
     label: "Open ClimaOne V1",
-    href: "[INSERT URL]",
+    href: "https://admin.climaone.in/login/index.html",
     tone: "primary"
   },
   secondaryAction: {
     label: "Learn more about ClimaOne",
-    href: "https://recircle.in/climaone/"
+    href: "https://admin.climaone.in/login/index.html"
   },
   accessNote:
     "Available on desktop and mobile | Login with password or OTP | Contact tech team for access",
@@ -331,7 +379,7 @@ export const climaOneV1Page: BaseToolPage & {
     body:
       "Features, onboarding steps, portal walkthroughs, and more - all on the official ClimaOne page.",
     ctaLabel: "Explore ClimaOne",
-    ctaHref: "https://recircle.in/climaone/"
+    ctaHref: "https://admin.climaone.in/login/index.html"
   },
   helpTitle: "Can't access it? We're here."
 };
@@ -572,7 +620,7 @@ export const climaOneV2Page: BaseToolPage & {
     highlight: "live.",
     body: "See the platform in action, explore features, and get in touch with the team.",
     ctaLabel: "Explore ClimaOne V2",
-    ctaHref: "https://climaonev2.recircle.in/"
+    ctaHref: "https://v2.climaone.in/login"
   },
   helpTitle: "Questions about ClimaOne V2?"
 };
@@ -590,7 +638,7 @@ export const placeholderToolPages = {
     subheading: "[INSERT HERO SUBHEADING]",
     primaryAction: {
       label: "Open OCR for EPR",
-      href: "[INSERT URL]",
+      href: "https://github.com/VishalSingh1806/OCR",
       tone: "primary" as const
     },
     secondaryAction: {
@@ -624,7 +672,7 @@ export const placeholderToolPages = {
     subheading: "[INSERT HERO SUBHEADING]",
     primaryAction: {
       label: "Open OCR for Business Card",
-      href: "[INSERT URL]",
+      href: "https://github.com/VishalSingh1806/Businesses-card-ocr",
       tone: "primary" as const
     },
     accessNote: "[INSERT ACCESS NOTE]",
@@ -654,7 +702,7 @@ export const placeholderToolPages = {
     subheading: "[INSERT HERO SUBHEADING]",
     primaryAction: {
       label: "Open Route Optimizer",
-      href: "[INSERT URL]",
+      href: "https://github.com/VishalSingh1806/best-route",
       tone: "primary" as const
     },
     accessNote: "[INSERT ACCESS NOTE]",
@@ -684,7 +732,7 @@ export const placeholderToolPages = {
     subheading: "[INSERT HERO SUBHEADING]",
     primaryAction: {
       label: "Open Chatbot",
-      href: "[INSERT URL]",
+      href: "https://recircle.in/epr/",
       tone: "primary" as const
     },
     accessNote: "[INSERT ACCESS NOTE]",
@@ -714,7 +762,7 @@ export const placeholderToolPages = {
     subheading: "[INSERT HERO SUBHEADING]",
     primaryAction: {
       label: "Open Drive Automation",
-      href: "[INSERT URL]",
+      href: "https://github.com/VishalSingh1806/backup-automation",
       tone: "primary" as const
     },
     accessNote: "[INSERT ACCESS NOTE]",

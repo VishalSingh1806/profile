@@ -1,6 +1,6 @@
-# ReCircle Product Hub
+# Product Hub
 
-Static-exported Next.js 14 portal for internal ReCircle tools.
+Static-exported Next.js 14 portal for internal tools.
 
 ## Setup
 

@@ -1,22 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 
 import "@/styles/globals.css";
 import { Navbar } from "@/components/Navbar/Navbar";
 
-const headingFont = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-heading"
-});
-
-const bodyFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-body"
-});
-
 export const metadata: Metadata = {
-  title: "ReCircle Product Hub",
-  description: "Recover. Recycle. Rethink"
+  title: "Vishal Singh - AI Solutions Architect and End-to-End Product Builder",
+  description:
+    "AI Solutions Architect who owns products end to end, from planning and stakeholder discussions to architecture, development, deployment, and iteration."
 };
 
 export default function RootLayout({
@@ -26,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${headingFont.variable} ${bodyFont.variable}`}>
+      <body id="top" className="bg-stone-100 text-stone-700 antialiased selection:bg-emerald-200 selection:text-emerald-950">
         <Navbar />
         {children}
       </body>
