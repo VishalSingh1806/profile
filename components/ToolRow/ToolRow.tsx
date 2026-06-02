@@ -4,7 +4,10 @@ import { motion } from "motion/react";
 type ToolRowProps = {
   number: string;
   name: string;
-  tagline: string;
+  challenge: string;
+  solution: string;
+  impact: string;
+  role: string;
   status: string;
   statusTone: "live" | "comingSoon" | "inDev";
   href: string;
@@ -23,7 +26,10 @@ const badgeStyles: Record<ToolRowProps["statusTone"], string> = {
 export function ToolRow({
   number,
   name,
-  tagline,
+  challenge,
+  solution,
+  impact,
+  role,
   status,
   statusTone,
   href,
@@ -45,7 +51,21 @@ export function ToolRow({
         {status}
       </span>
       <h2 className="mt-5 text-3xl leading-tight tracking-[-0.04em] text-stone-950">{name}</h2>
-      <p className="mt-4 max-w-[38ch] text-base leading-8 text-stone-600">{tagline}</p>
+      <div className="mt-5 grid max-w-[56ch] gap-3">
+        {[
+          ["Challenge", challenge],
+          ["Solution", solution],
+          ["Impact", impact],
+          ["Role", role]
+        ].map(([label, body]) => (
+          <p key={label} className="text-sm leading-6 text-stone-600">
+            <strong className="mr-1.5 text-xs uppercase tracking-[0.14em] text-emerald-800">
+              {label}
+            </strong>
+            {body}
+          </p>
+        ))}
+      </div>
       {mailto ? (
         <a
           className={`mt-6 inline-flex w-fit items-center gap-2 border-b-2 pb-1 font-semibold transition-all hover:gap-3 ${statusTone === "comingSoon" || statusTone === "inDev" ? "border-amber-700 text-amber-800" : "border-emerald-800 text-emerald-800"}`}
@@ -85,7 +105,7 @@ export function ToolRow({
   const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
   return (
-    <article className="group grid border-b border-emerald-950/10 lg:min-h-[460px] lg:grid-cols-2">
+    <article className="group grid border-b border-emerald-950/10 lg:min-h-[540px] lg:grid-cols-2">
       <motion.div
         className={reversed ? "order-2" : ""}
         initial={{ opacity: 0, x: reversed ? 40 : -40 }}

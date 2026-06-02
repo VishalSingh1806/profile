@@ -20,8 +20,10 @@ import {
 import type { LucideIcon } from "lucide-react";
 
 export const navLinks = [
+  { href: "/#solutions", label: "Solutions" },
   { href: "/#about", label: "About" },
-  { href: "/#projects", label: "Projects" }
+  { href: "/#projects", label: "Case Studies" },
+  { href: "/#insights", label: "Insights" }
 ] as const;
 
 export const aboutContent = {
@@ -35,6 +37,103 @@ export const aboutContent = {
     "Redis", "Socket.IO", "PostgreSQL", ".NET"
   ]
 };
+
+export const portfolioAboutContent = {
+  bio: [
+    "The most valuable systems are the ones that fit naturally into how teams already work. Over the last few years, I have worked across multiple domains, helping organisations translate complex workflows into software that teams can rely on every day.",
+    "My approach combines business understanding, systems thinking, and technical execution. I spend as much time understanding processes, decisions, and bottlenecks as I do designing architecture or writing code.",
+    "Whether it is an AI-powered knowledge assistant, a document intelligence workflow, a logistics platform, or an internal operations tool, the goal remains the same: build systems that reduce friction, improve decision-making, and create measurable operational value."
+  ],
+  techStack: aboutContent.techStack
+};
+
+export const solutionCategories = [
+  {
+    title: "AI Knowledge Assistants",
+    description:
+      "Turn organisational knowledge into conversational systems that help teams find information and make decisions faster.",
+    examples: ["Policy assistants", "Compliance assistants", "Domain chatbots"]
+  },
+  {
+    title: "Document Intelligence Systems",
+    description:
+      "Extract, validate, classify, and process information from documents, forms, reports, and compliance records.",
+    examples: ["OCR workflows", "Document processing", "Extraction pipelines"]
+  },
+  {
+    title: "Workflow Automation Platforms",
+    description:
+      "Reduce repetitive work by digitising and automating operational processes across departments.",
+    examples: ["Approval systems", "Field operations", "Process automation"]
+  },
+  {
+    title: "Operations & Decision Support",
+    description:
+      "Give teams structured workflows and data-driven visibility for planning and day-to-day operations.",
+    examples: ["Route optimisation", "Dashboards", "Resource tracking"]
+  },
+  {
+    title: "Custom Internal Platforms",
+    description:
+      "Build applications around specific organisational workflows when off-the-shelf software falls short.",
+    examples: ["Management systems", "Operational portals", "Multi-party platforms"]
+  }
+] as const;
+
+export const credibilitySignals = [
+  {
+    value: "11+",
+    title: "Systems across real workflows",
+    description:
+      "A portfolio spanning live, shipped, and in-progress systems across operations, compliance, and internal tooling."
+  },
+  {
+    value: "7",
+    title: "Traceability touchpoints",
+    description:
+      "ClimaOne V2 models evidence across collection, plant processing, bagging, dispatch, and converter receipt."
+  },
+  {
+    value: "300",
+    title: "Cards in one OCR batch",
+    description:
+      "The business-card OCR workflow turns large contact batches into structured, export-ready data."
+  },
+  {
+    value: "5+",
+    title: "Sectors represented",
+    description:
+      "Work across compliance, logistics, education, nonprofit initiatives, and consumer products."
+  }
+] as const;
+
+export const selectedLiveWork = [
+  { name: "ClimaOne V1", href: "https://admin.climaone.in/login/index.html" },
+  { name: "EPR Knowledge Assistant", href: "https://recircle.in/epr/" },
+  { name: "REO 360", href: "https://reo360.in/#/" },
+  { name: "Accelerate Indian Philanthropy", href: "https://www.indianphilanthropy.org/" }
+] as const;
+
+export const insightCards = [
+  {
+    number: "01",
+    title: "Operational AI starts with workflow design",
+    description:
+      "The useful question is not where AI can be added. It is where teams lose time, context, or confidence while work moves from one step to the next."
+  },
+  {
+    number: "02",
+    title: "Document intelligence needs a destination",
+    description:
+      "OCR creates value when extracted data enters a review, approval, compliance, or reporting workflow instead of stopping at a model response."
+  },
+  {
+    number: "03",
+    title: "Traceability is an evidence-design problem",
+    description:
+      "A reliable chain of custody depends on capturing the right documents, weights, timestamps, and exceptions at the moment each handoff occurs."
+  }
+] as const;
 
 export type RoleItem = {
   icon: LucideIcon;
@@ -221,6 +320,78 @@ export const overviewTools = [
     mockup: "aip" as const
   }
 ];
+
+export const projectNarratives: Record<
+  string,
+  { challenge: string; solution: string; impact: string; role: string }
+> = {
+  "ClimaOne V1": {
+    challenge: "Compliance operations spanned purchase orders, partners, facilities, vehicles, and certificates.",
+    solution: "A role-based EPR platform covering the lifecycle from purchase order creation to certificate issuance.",
+    impact: "Teams can manage recovery operations and compliance evidence through one connected system.",
+    role: "Discovery, workflow design, architecture, development, deployment, and iteration."
+  },
+  "ClimaOne V2": {
+    challenge: "Material movement lacked a unified chain of custody across collection partners, plants, and converters.",
+    solution: "A BIS-aligned traceability platform tracking material across 7 physical touchpoints with attached evidence.",
+    impact: "Teams can trace provenance, identify evidence gaps, and answer compliance questions from one system.",
+    role: "Workflow design, system architecture, product development, and deployment planning."
+  },
+  "OCR for EPR": {
+    challenge: "EPR teams needed to turn compliance documents into structured data without repetitive extraction.",
+    solution: "An asynchronous OCR workflow powered by Gemini Vision, Redis, and Socket.IO.",
+    impact: "Uploaded documents are converted into structured data for downstream compliance workflows.",
+    role: "Workflow design, architecture, development, and deployment."
+  },
+  "OCR for Business Cards": {
+    challenge: "Manual contact capture made large batches of business cards slow to process and difficult to use.",
+    solution: "A Gemini-powered OCR workflow that batch-processes up to 300 cards into export-ready contact data.",
+    impact: "Teams can convert card collections into usable outreach data in a single flow.",
+    role: "Product design, architecture, development, and deployment."
+  },
+  "Route Optimizer": {
+    challenge: "Field teams needed a practical way to plan pickups around dispatch constraints and service areas.",
+    solution: "An area-based route planning tool with a FastAPI backend and GCS integration.",
+    impact: "Dispatch teams can organise pickup planning through a repeatable operational workflow.",
+    role: "Workflow discovery, backend development, integration, and deployment."
+  },
+  "EPR Chatbot": {
+    challenge: "Users had to search manually through complex EPR regulations, policies, and compliance resources.",
+    solution: "A RAG assistant that retrieves relevant information through natural-language questions and cited answers.",
+    impact: "Compliance knowledge is easier to access without searching across multiple resources.",
+    role: "Discovery, workflow design, architecture, development, deployment, and iteration."
+  },
+  "Marathi Startup Chatbot": {
+    challenge: "Entrepreneurs needed easier access to startup guidance and funding information in Marathi.",
+    solution: "A Marathi-first RAG assistant for startup, funding, and business-development questions.",
+    impact: "Users can access relevant guidance conversationally in their preferred language.",
+    role: "Solution design, RAG implementation, development, and deployment."
+  },
+  "Drive Automation": {
+    challenge: "Google Drive ownership audits and transfers created repetitive administrative work.",
+    solution: "An internal automation tool that audits and transfers Drive ownership in one flow.",
+    impact: "Teams can complete a recurring administrative process with fewer manual steps.",
+    role: "Workflow analysis, automation design, development, and deployment."
+  },
+  FootLooseNoMore: {
+    challenge: "A curated matchmaking service needed a structured digital workflow for profiles, matching, and review.",
+    solution: "A consumer PWA with profile matching, OTP authentication, real-time updates, and admin review flows.",
+    impact: "The product brings member and admin workflows into one purpose-built platform.",
+    role: "Product design, full-stack development, deployment, and iteration."
+  },
+  "REO 360": {
+    challenge: "Institution teams needed one system for fee collection, payment validation, and student records.",
+    solution: "An operations platform with structured records and Excel-based bulk workflows.",
+    impact: "Administrative teams can manage core institution processes through a unified platform.",
+    role: "Workflow design, full-stack development, and deployment."
+  },
+  "Accelerate Indian Philanthropy": {
+    challenge: "A nonprofit initiative needed a public platform for giving, member discovery, careers, and information.",
+    solution: "A Next.js platform with a headless Express API, giving portal, directory, careers section, and FAQ.",
+    impact: "Visitors can discover the initiative and engage with its core programmes through one digital platform.",
+    role: "Product design, frontend development, API integration, and deployment."
+  }
+};
 
 const placeholderRoles: RoleItem[] = [
   { icon: Users, name: "[INSERT ROLE]", description: "[INSERT ROLE DESCRIPTION]" },

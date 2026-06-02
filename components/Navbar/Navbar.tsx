@@ -40,6 +40,12 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              className="inline-flex min-h-10 items-center rounded-full bg-emerald-800 px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-stone-50 transition-transform duration-200 hover:-translate-y-0.5"
+              href="/#contact"
+            >
+              Discuss a project
+            </a>
           </nav>
 
           <button
@@ -76,6 +82,13 @@ export function Navbar() {
                     {link.label}
                   </a>
                 ))}
+                <a
+                  href="/#contact"
+                  className="flex min-h-12 items-center font-bold text-emerald-800"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Discuss a project
+                </a>
               </nav>
             </motion.div>
           ) : null}

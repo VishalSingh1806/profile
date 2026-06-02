@@ -1,13 +1,32 @@
 "use client";
 
-import { Github, Linkedin } from "lucide-react";
-import { motion, useScroll, useTransform } from "motion/react";
+import {
+  Bot,
+  BookOpen,
+  ExternalLink,
+  FileSearch,
+  Github,
+  LayoutDashboard,
+  Linkedin,
+  PanelsTopLeft,
+  Workflow
+} from "lucide-react";
+import { motion } from "motion/react";
 
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { ToolRow } from "@/components/ToolRow/ToolRow";
-import { aboutContent, overviewTools } from "@/lib/content";
+import {
+  overviewTools,
+  portfolioAboutContent,
+  credibilitySignals,
+  insightCards,
+  projectNarratives,
+  selectedLiveWork,
+  solutionCategories
+} from "@/lib/content";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+const solutionIcons = [Bot, FileSearch, Workflow, LayoutDashboard, PanelsTopLeft];
 
 // Hero section is static — cinematic motion lives in scroll-driven parallax and whileInView reveals below the fold.
 
@@ -246,52 +265,50 @@ function OverviewMockup({ type }: { type: (typeof overviewTools)[number]["mockup
 }
 
 export default function HomePage() {
-  const { scrollY } = useScroll();
-  const orbY = useTransform(scrollY, [0, 800], [0, 120]);
-  const orbRotate = useTransform(scrollY, [0, 800], [0, 22]);
-
   return (
     <main>
       <section className="relative overflow-hidden border-b border-emerald-950/10 bg-[radial-gradient(circle_at_top_left,rgba(217,119,6,0.14),transparent_32%),radial-gradient(circle_at_85%_18%,rgba(6,95,70,0.12),transparent_28%),linear-gradient(180deg,#f8f4ec_0%,#f2ede3_45%,#f7f5ef_100%)]">
         <div className="relative mx-auto w-[min(1280px,calc(100%-32px))] py-18 md:w-[min(1240px,calc(100%-96px))] md:py-24">
-          <motion.div
+          <div
             className="pointer-events-none absolute right-[-90px] top-4 h-[320px] w-[320px] rounded-full bg-[conic-gradient(from_120deg,rgba(217,119,6,0.22),rgba(6,95,70,0.08),rgba(255,255,255,0.08),rgba(217,119,6,0.22))] blur-xl md:right-0 md:top-12 md:h-[520px] md:w-[520px]"
-            style={{ y: orbY, rotate: orbRotate }}
           />
 
-          <div className="relative grid items-end gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.75fr)]">
-            <div className="max-w-4xl">
+          <div className="relative grid items-start gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.75fr)]">
+            <div className="max-w-5xl">
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">
                 AI Solution Architect
               </p>
-              <p className="mt-5 text-sm font-bold uppercase tracking-[0.12em] text-amber-800">
+              <p className="mt-7 text-sm font-bold uppercase tracking-[0.12em] text-amber-800">
                 Strategy. Systems. Shipping.
               </p>
-              <h1 className="mt-4 max-w-[13ch] text-[clamp(3rem,9vw,6rem)] leading-[0.96] tracking-[-0.07em] text-stone-950 max-md:max-w-none">
-                Vishal Singh builds products all the way from
-                <span className="text-emerald-800"> stakeholder conversation </span>
-                to production.
+              <h1 className="mt-7 max-w-[15ch] text-[clamp(3rem,8vw,6rem)] leading-[1.02] tracking-[-0.065em] text-stone-950 max-md:max-w-none">
+                Building AI-powered systems that solve
+                <span className="block whitespace-nowrap text-emerald-800">
+                  operational problems.
+                </span>
               </h1>
-              <p className="mt-6 max-w-4xl text-[clamp(1.15rem,2vw,1.55rem)] font-semibold leading-8 text-[#223731]">
-                End-to-end product builder for AI, automation, and internal platforms.
+              <p className="mt-8 max-w-4xl text-[clamp(1.15rem,2vw,1.55rem)] font-semibold leading-9 text-[#223731]">
+                AI Solution Architect for automation, document intelligence, and operational
+                systems.
               </p>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-stone-600">
-                I own planning, client meetings, stakeholder discussions, workflow design,
-                architecture, development, deployment, and iteration. The outcome is not just
-                code. It is software that teams can actually run their operations on.
+              <p className="mt-7 max-w-3xl text-lg leading-9 text-stone-600">
+                I partner with organisations to understand how work flows across teams, identify
+                opportunities for automation, and build AI-powered systems that improve efficiency,
+                accuracy, and decision-making. My focus is on delivering technical solutions that
+                become part of everyday operations.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-800 px-5 py-3 font-bold text-stone-50 shadow-[0_16px_28px_rgba(6,78,59,0.18)] transition-transform hover:-translate-y-0.5"
-                  href="#projects"
+                  href="#solutions"
                 >
-                  View projects
+                  Explore solutions
                 </a>
                 <a
                   className="inline-flex min-h-12 items-center justify-center rounded-full border border-emerald-950/12 bg-white/60 px-5 py-3 font-bold text-stone-950 backdrop-blur-sm transition-transform hover:-translate-y-0.5"
-                  href="#about"
+                  href="#projects"
                 >
-                  How I work
+                  View case studies
                 </a>
               </div>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -322,34 +339,43 @@ export default function HomePage() {
 
             <aside className="rounded-[1.75rem] border border-emerald-950/12 bg-white/65 p-6 shadow-[0_24px_60px_rgba(33,40,37,0.08)] backdrop-blur-xl">
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-800">
-                What I own
+                What clients receive
+              </p>
+              <p className="mt-2 text-sm leading-6 text-stone-500">
+                Built and shipped solutions across compliance, logistics, education, philanthropy,
+                and internal operations.
               </p>
               <div className="mt-5 grid gap-4">
                 {[
-                  "Discovery and requirement shaping with decision-makers",
-                  "Architecture, backend systems, frontend delivery, and deployment",
-                  "AI workflows across OCR, RAG, routing, and internal operations",
-                  "Iteration after launch based on real usage and team feedback"
-                ].map((item) => (
-                  <div key={item} className="grid grid-cols-[12px_1fr] gap-3">
+                  ["A Clear Problem Definition", "Align business needs, stakeholder expectations & technical scope before development begins."],
+                  ["AI Systems Built for Operations", "Tools that automate workflows, organise knowledge & support day-to-day decision-making."],
+                  ["One Point of Ownership", "A single partner who carries the solution from discovery through deployment."],
+                  ["Solutions That Stick", "Systems designed around how teams actually work, not how software is expected to work."]
+                ].map(([title, body]) => (
+                  <div key={title} className="grid grid-cols-[12px_1fr] gap-3">
                     <span className="mt-2.5 h-3 w-3 rounded-full bg-[linear-gradient(135deg,#d97706_0%,#065f46_100%)] shadow-[0_0_0_6px_rgba(6,78,59,0.06)]" />
-                    <p className="leading-7 text-stone-600">{item}</p>
+                    <p className="leading-7 text-stone-600">
+                      <strong className="text-stone-950">{title}:</strong> {body}
+                    </p>
                   </div>
                 ))}
               </div>
               <blockquote className="mt-6 border-t border-emerald-950/10 pt-5 text-lg leading-8 text-stone-950">
-                Products should feel clear in a meeting, reliable in production, and useful to the
-                team using them every day.
+                The best systems feel simple to discuss, reliable in production, and indispensable
+                to the people using them.
               </blockquote>
             </aside>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <p className="mt-10 text-xs font-bold uppercase tracking-[0.24em] text-emerald-800">
+            Building systems across domains
+          </p>
+          <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {[
-              ["11+", "shipped or in-progress products"],
-              ["End to End", "from discovery to deployment"],
-              ["AI + Full Stack", "OCR, RAG, logistics, compliance"],
-              ["Multi-domain", "operations, education, nonprofit, consumer"]
+              ["11+ Operational Systems", "designed, built, and deployed"],
+              ["End-to-End", "Discovery → Architecture → Development → Deployment"],
+              ["AI-Driven", "Document intelligence, knowledge systems, and automation workflows"],
+              ["5+ Sectors", "CleanTech, Waste Management, Education, Philanthropy & Consumer Products"]
             ].map(([value, label], index) => (
               <motion.article
                 key={label}
@@ -382,13 +408,13 @@ export default function HomePage() {
           >
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">About</p>
             <h2 className="mt-4 text-[clamp(2rem,5vw,3.25rem)] leading-[1.02] tracking-[-0.05em] text-stone-950">
-              A builder who can carry the whole thing.
+              Building systems that solve operational problems.
             </h2>
             <p className="mt-4 max-w-[28ch] text-base font-semibold leading-8 text-[#41534d]">
-              Not just implementation. Problem framing, alignment, execution, and launch.
+              Business understanding, systems thinking, and technical execution.
             </p>
             <div className="mt-7 flex flex-wrap gap-2.5">
-              {aboutContent.techStack.map((tag) => (
+              {portfolioAboutContent.techStack.map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-emerald-950/8 bg-emerald-950/5 px-3.5 py-2 text-[11px] font-bold uppercase tracking-[0.08em] text-emerald-800"
@@ -406,7 +432,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
             className="rounded-[1.9rem] border border-emerald-950/10 bg-white/76 p-6 shadow-[0_20px_50px_rgba(33,40,37,0.06)] backdrop-blur-sm md:p-9"
           >
-            {aboutContent.bio.map((para, i) => (
+            {portfolioAboutContent.bio.map((para, i) => (
               <p
                 key={i}
                 className={`text-base leading-9 text-stone-600 md:text-[1.08rem] ${i === 0 ? "first-letter:float-left first-letter:mr-2.5 first-letter:text-5xl first-letter:font-bold first-letter:leading-none first-letter:text-emerald-800 md:first-letter:text-6xl" : ""} ${i > 0 ? "mt-5" : ""}`}
@@ -420,8 +446,8 @@ export default function HomePage() {
                   Working style
                 </p>
                 <p className="leading-8 text-stone-600">
-                  I translate vague business problems into concrete workflows, scope, system
-                  design, and shipped interfaces.
+                  I translate complex business processes into clear workflows, technical scope,
+                  system design, and shipped software.
                 </p>
               </article>
               <article className="rounded-[1.4rem] border border-emerald-950/8 bg-[linear-gradient(180deg,#f7f5ef_0%,#f0ebe2_100%)] p-5">
@@ -429,8 +455,8 @@ export default function HomePage() {
                   What teams get
                 </p>
                 <p className="leading-8 text-stone-600">
-                  A single owner who can talk to stakeholders, make technical decisions, build the
-                  product, and carry it through deployment.
+                  A single partner who can align stakeholders, make technical decisions, build the
+                  solution, and carry it through deployment.
                 </p>
               </article>
             </div>
@@ -439,15 +465,145 @@ export default function HomePage() {
       </section>
 
       <section
+        id="solutions"
+        className="border-b border-emerald-950/10 bg-[linear-gradient(180deg,#eef3ef_0%,#f8f5ee_100%)]"
+      >
+        <div className="mx-auto w-[min(1280px,calc(100%-32px))] py-16 md:w-[min(1280px,calc(100%-96px))] md:py-24">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">
+              What I build
+            </p>
+            <h2 className="mt-4 text-[clamp(2.2rem,5vw,4rem)] leading-[1] tracking-[-0.06em] text-stone-950">
+              Most organisations need systems that remove friction, simplify decision-making, and
+              fit naturally into existing workflows.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-600">
+              AI and software systems designed to streamline operations, unlock knowledge, and
+              reduce manual effort across teams.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-6">
+            {solutionCategories.map((solution, index) => {
+              const Icon = solutionIcons[index];
+
+              return (
+                <motion.article
+                  key={solution.title}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.5, delay: index * 0.06, ease: EASE }}
+                  className={`min-h-[280px] rounded-[1.5rem] border border-emerald-950/10 bg-white/75 p-6 shadow-[0_16px_36px_rgba(33,40,37,0.05)] xl:col-span-2 ${index === 3 ? "xl:col-start-2" : ""}`}
+                >
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-800 text-stone-50">
+                    <Icon size={20} />
+                  </span>
+                  <h3 className="mt-5 text-xl leading-6 tracking-[-0.04em] text-stone-950">
+                    {solution.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-stone-600">{solution.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {solution.examples.map((example) => (
+                      <span
+                        key={example}
+                        className="rounded-full bg-emerald-950/5 px-2.5 py-1 text-[11px] font-semibold text-emerald-800"
+                      >
+                        {example}
+                      </span>
+                    ))}
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-b border-emerald-950/10 bg-[#f7f4ee]"
+        id="proof"
+      >
+        <div className="mx-auto w-[min(1280px,calc(100%-32px))] py-16 md:w-[min(1280px,calc(100%-96px))] md:py-24">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">
+                Proof in practice
+              </p>
+              <h2 className="mt-4 text-[clamp(2.2rem,5vw,4rem)] leading-[1] tracking-[-0.06em] text-stone-950">
+                Built around operational reality, not demo scenarios.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-stone-600">
+              The portfolio includes systems used for compliance, logistics, document processing,
+              education operations, nonprofit engagement, and consumer workflows.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {credibilitySignals.map((signal, index) => (
+              <motion.article
+                key={signal.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.06, ease: EASE }}
+                className="rounded-[1.5rem] border border-emerald-950/10 bg-white/72 p-5 shadow-[0_14px_34px_rgba(33,40,37,0.05)]"
+              >
+                <strong className="text-4xl tracking-[-0.06em] text-emerald-800">
+                  {signal.value}
+                </strong>
+                <h3 className="mt-4 text-xl leading-6 tracking-[-0.04em] text-stone-950">
+                  {signal.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-stone-600">{signal.description}</p>
+              </motion.article>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-4 rounded-[1.5rem] border border-emerald-950/10 bg-emerald-950/[0.035] p-5 md:flex-row md:items-center md:justify-between">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-800">
+              Explore selected live work
+            </p>
+            <div className="flex flex-wrap gap-x-5 gap-y-3">
+              {selectedLiveWork.map((project) => (
+                <a
+                  key={project.name}
+                  className="inline-flex items-center gap-1.5 text-sm font-bold text-stone-700 transition-colors hover:text-emerald-800"
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {project.name}
+                  <ExternalLink size={13} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
         id="projects"
         className="mx-auto w-[min(1280px,calc(100%-32px))] md:w-[min(1280px,calc(100%-96px))]"
       >
+        <div className="max-w-3xl py-16 md:py-20">
+          <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">
+            Case studies
+          </p>
+          <h2 className="mt-4 text-[clamp(2.2rem,5vw,4rem)] leading-[1] tracking-[-0.06em] text-stone-950">
+            Systems built around real operational challenges.
+          </h2>
+          <p className="mt-5 text-lg leading-8 text-stone-600">
+            A selection of AI, automation, and operational systems designed across sectors.
+          </p>
+        </div>
         {overviewTools.map((tool, index) => (
           <ToolRow
             key={tool.number}
             number={tool.number}
             name={tool.name}
-            tagline={tool.tagline}
+            {...projectNarratives[tool.name]}
             status={tool.status}
             statusTone={tool.statusTone}
             href={tool.href}
@@ -456,6 +612,67 @@ export default function HomePage() {
             visual={<OverviewMockup type={tool.mockup} />}
           />
         ))}
+        <p className="mx-auto max-w-4xl py-16 text-center text-lg leading-9 text-stone-600 md:py-20">
+          These projects span different industries and use cases, but share one objective: helping
+          teams make decisions faster, reduce manual effort, and operate more effectively through
+          thoughtfully designed software and AI systems.
+        </p>
+      </section>
+
+      <section
+        id="insights"
+        className="border-t border-emerald-950/10 bg-[linear-gradient(180deg,#eef3ef_0%,#f8f5ee_100%)]"
+      >
+        <div className="mx-auto w-[min(1280px,calc(100%-32px))] py-16 md:w-[min(1280px,calc(100%-96px))] md:py-24">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">
+                Working notes
+              </p>
+              <h2 className="mt-4 text-[clamp(2.2rem,5vw,4rem)] leading-[1] tracking-[-0.06em] text-stone-950">
+                Lessons from designing systems for real workflows.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-stone-600">
+              Practical principles for turning AI capabilities into tools that teams can use in
+              day-to-day operations.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {insightCards.map((insight, index) => (
+              <motion.article
+                key={insight.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: EASE }}
+                className="rounded-[1.5rem] border border-emerald-950/10 bg-white/75 p-6 shadow-[0_14px_34px_rgba(33,40,37,0.05)]"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
+                    Note {insight.number}
+                  </span>
+                  <BookOpen size={18} className="text-emerald-800" />
+                </div>
+                <h3 className="mt-6 text-2xl leading-7 tracking-[-0.05em] text-stone-950">
+                  {insight.title}
+                </h3>
+                <p className="mt-4 leading-7 text-stone-600">{insight.description}</p>
+              </motion.article>
+            ))}
+          </div>
+
+          <a
+            className="mt-8 inline-flex items-center gap-2 border-b-2 border-emerald-800 pb-1 font-bold text-emerald-800 transition-all hover:gap-3"
+            href="https://www.linkedin.com/in/singhkumarvishal/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Follow future notes on LinkedIn
+            <ExternalLink size={14} />
+          </a>
+        </div>
       </section>
 
       <FooterStrip />
